@@ -12,21 +12,19 @@ return {
   opts = function()
     local lualine_require = require("lualine_require")
     lualine_require.require = require
-
     local icons = require("lazyvim.config").icons
-
     vim.o.laststatus = vim.g.lualine_laststatus
 
     return {
       options = {
-        theme = "base16",
+        theme = "gruvbox-material",
         globalstatus = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
         component_separators = { left = "|", right = "|" },
-        section_separators = { left = "█", right = "█" },
+        section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "█" }, right_padding = 2 } },
+        lualine_a = { { "mode", separator = { left = "" }, right_padding = 0 } },
         lualine_b = { "branch" },
 
         lualine_c = {
@@ -96,7 +94,7 @@ return {
         lualine_z = {
           {
             "location",
-            separator = { right = "█" },
+            separator = { right = "" },
           },
         },
       },

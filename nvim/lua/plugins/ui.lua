@@ -54,7 +54,7 @@ return {
             InclineNormalNC = { guibg = "none", guifg = "#ebdbb2" },
           },
         },
-        window = { margin = { vertical = 0, horizontal = 1 } },
+        window = { margin = { vertical = 0, horizontal = 0 } },
         hide = { cursorline = true },
         render = function(props)
           local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")

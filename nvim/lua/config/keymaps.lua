@@ -2,26 +2,28 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- These are the Default non customized keymaps -- 
-
--- local fzf = require("fzf-lua")
-
--- vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find Files (fzf-lua)" })
--- vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live Grep (fzf-lua)" })
--- vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Buffers (fzf-lua)" })
--- vim.keymap.set("n", "<leader>fh", fzf.help_tags, { desc = "Help Tags (fzf-lua)" })
-
-
-
-
--- Alternative KeyMaps binding config file -- 
-
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 local util = require("lazyvim.util")
 local set_keymap = vim.api.nvim_set_keymap
 local snacks = require("snacks")
+
+-- Custom config to disabled_keys
+vim.notify("Keymaps loaded!", vim.log.levels.INFO)
+
+-- Disable arrow keys in all modes
+local disabled_keys = { "<Up>", "<Down>", "<Left>", "<Right>" }
+local modes = { "n", "i", "v" } -- Normal, Insert, Visual
+
+for _, key in ipairs(disabled_keys) do
+  for _, mode in ipairs(modes) do
+    vim.keymap.set(mode, key, function()
+      vim.api.nvim_echo({ { "KEY DISABLED", "ErrorMsg" } }, true, {})
+    end, { noremap = true, silent = true })
+  end
+end
+
+-- ---------- config -------
 
 -- Borderless terminal
 vim.keymap.set("n", "<C-/>", function()
