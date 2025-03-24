@@ -1,7 +1,6 @@
 font-family = ZedMono Nerd Font
 font-size = 20
 font-style= "normal"
-title = "MacBook-Pro"
 background-blur-radius = 16
 background-opacity = 0.75
 shell-integration = zsh
